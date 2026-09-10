@@ -19,6 +19,7 @@ export default async function AuthorPage({ params }) {
 			<div className="error-page">
 				<h1>Author not found</h1>
 				<p>The author you're looking for doesn't exist.</p>
+				<p style={{ fontSize: '12px', color: '#999' }}>Slug: {slug}</p>
 				<Link href="/articles">← Back to articles</Link>
 			</div>
 		);
@@ -29,21 +30,27 @@ export default async function AuthorPage({ params }) {
 	// Fetch all articles by this author
 	let articles = [];
 	try {
+		console.log('🔍 Fetching articles for author UUID:', authorStory.uuid);
+		
 		const allStories = await getStories({
 			filter_query: {
 				component: {
 					in: 'article',
 				},
-				Author: {
+				author: {
 					in: authorStory.uuid,
 				},
 			},
 			per_page: 100,
 			version: 'draft',
 		});
+		
+		console.log('📚 Articles found:', allStories?.length || 0);
+		console.log('📦 Raw response:', JSON.stringify(allStories, null, 2));
+		
 		articles = allStories || [];
 	} catch (error) {
-		console.error(`Error fetching articles for author ${slug}:`, error);
+		console.error(`❌ Error fetching articles for author ${slug}:`, error);
 		articles = [];
 	}
 
@@ -51,7 +58,7 @@ export default async function AuthorPage({ params }) {
 		<div className="author-container">
 			{/* Author Profile Section */}
 			<div className="author-profile-section">
-				{authorContent.Photo && (
+				{authorContent.Photo && authorContent.Photo.filename && (
 					<div className="author-photo-wrapper">
 						<Image
 							src={authorContent.Photo.filename}
