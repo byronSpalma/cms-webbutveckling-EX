@@ -28,6 +28,8 @@ export default async function CategoryPage({ params }) {
 	// Fetch all articles in this category
 	let articles = [];
 	try {
+		console.log('🔍 Fetching articles for category:', slug);
+		
 		const allStories = await getStories({
 			filter_query: {
 				component: {
@@ -40,9 +42,13 @@ export default async function CategoryPage({ params }) {
 			per_page: 100,
 			version: 'draft',
 		});
+		
+		console.log('📚 Articles found for category:', allStories?.length || 0);
+		console.log('📦 Raw articles response:', JSON.stringify(allStories, null, 2));
+		
 		articles = allStories || [];
 	} catch (error) {
-		console.error(`Error fetching articles for category ${slug}:`, error);
+		console.error(`❌ Error fetching articles for category ${slug}:`, error);
 		articles = [];
 	}
 
