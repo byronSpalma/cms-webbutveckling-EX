@@ -49,7 +49,10 @@ export async function getStoryWithRelations(slug, relations = []) {
 		if (typeof authorId === 'string') {
 			const authorStory = await getStoryById(authorId);
 			if (authorStory) {
-				result.content.Author = authorStory.content;
+				result.content.Author = {
+					...authorStory.content,
+					slug: authorStory.slug,
+				};
 			}
 		}
 	}

@@ -32,7 +32,11 @@ async function resolveArticleAuthors(articles) {
 						});
 
 						if (data.stories && data.stories.length > 0) {
-							article.content.Author = data.stories[0].content;
+							const authorStory = data.stories[0];
+							article.content.Author = {
+								...authorStory.content,
+								slug: authorStory.slug,
+							};
 						}
 					} catch (error) {
 						console.error(`Error fetching author ${authorId}:`, error);

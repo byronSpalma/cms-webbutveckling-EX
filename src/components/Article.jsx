@@ -26,9 +26,13 @@ const Article = ({ blok }) => {
 							/>
 						)}
 						<div className="author-details">
+						{blok.Author.slug ? (
 							<Link href={`/authors/${blok.Author.slug}`} className="author-name">
 								{blok.Author.Name}
 							</Link>
+						) : (
+							<span className="author-name">{blok.Author.Name}</span>
+						)}
 							<p className="author-bio">{blok.Author.Bio}</p>
 						</div>
 					</div>
