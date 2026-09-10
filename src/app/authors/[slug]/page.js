@@ -37,7 +37,7 @@ export default async function AuthorPage({ params }) {
 				component: {
 					in: 'article',
 				},
-				author: {
+				Author: {
 					in: authorStory.uuid,
 				},
 			},
