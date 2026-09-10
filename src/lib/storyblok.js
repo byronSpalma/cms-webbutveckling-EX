@@ -4,6 +4,7 @@ import Grid from '@/components/Grid';
 import Teaser from '@/components/Teaser';
 import Article from '@/components/Article';
 import Author from '@/components/Author';
+import ArticleList from '@/components/ArticleList';
 import { apiPlugin, storyblokInit } from '@storyblok/react/rsc';
 
 export const getStoryblokApi = storyblokInit({
@@ -16,6 +17,7 @@ export const getStoryblokApi = storyblokInit({
 		teaser: Teaser,
 		article: Article,
 		author: Author,
+		"article-list": ArticleList,
 	},
 	apiOptions: {
 		/** Set the correct region for your space. Learn more: https://www.storyblok.com/docs/packages/storyblok-js#example-region-parameter */
