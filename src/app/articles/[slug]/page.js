@@ -2,43 +2,17 @@ import { StoryblokStory } from '@storyblok/react/rsc';
 import Article from '@/components/Article';
 import { getStoryWithRelations, getStoriesByType } from '@/lib/api';
 
-export async function generateMetadata({ params }) {
-	const { slug } = await params;
-
-	try {
-		// Fetch the article story for metadata
-		const story = await getStoryWithRelations(`articles/${slug}`, 'article.author');
-
-		if (!story || !story.content) {
-			return {
-				title: 'Article - NYHETER',
-				description: 'Read our latest articles',
-			};
-		}
-
-		return {
-			title: `${story.content.Title} - NYHETER`,
-			description: story.content.Summary || 'Read this article on NYHETER',
-			openGraph: {
-				title: story.content.Title,
-				description: story.content.Summary,
-				type: 'article',
-			},
-		};
-	} catch (error) {
-		console.error('Error generating metadata:', error);
-		return {
-			title: 'Article - NYHETER',
-			description: 'Read our latest articles',
-		};
-	}
-}
+export const metadata = {
+	title: 'Article - NYHETER',
+	description: 'Read our latest articles',
+};
 
 export default async function ArticlePage({ params }) {
 	const { slug } = await params;
 
 	// Fetch the article story with resolved author relation
 	const story = await getStoryWithRelations(`articles/${slug}`, 'article.author');
+	console.log('STORY DATA:', JSON.stringify(story, null, 2));
 
 	if (!story) {
 		return (

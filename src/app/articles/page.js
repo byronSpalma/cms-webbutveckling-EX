@@ -73,14 +73,14 @@ export default async function ArticlesPage() {
 								<h2 className="article-card-title">{article.content.Title}</h2>
 								<p className="article-card-summary">{article.content.Summary}</p>
 
-								{article.content.Author && (
-									<div className="article-card-author">
-										<span className="author-label">By:</span>
-										<span className="author-name">
-											{article.content.Author.Name || 'Unknown Author'}
-										</span>
-									</div>
-								)}
+								{article.content.Author?.[0] && (
+                                    <div className="article-card-author">
+                                     <span className="author-label">By:</span>
+                                     <span className="author-name">
+                                         {article.content.Author[0].content?.Name || 'Unknown Author'}
+                                     </span>
+                                 </div>
+                                )}
 							</Link>
 						</article>
 					))}
