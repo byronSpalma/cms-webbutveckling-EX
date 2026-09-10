@@ -13,6 +13,9 @@ export default async function CategoryPage({ params }) {
 	// Fetch the category story
 	const categoryStory = await getStory(`categories/${slug}`);
 
+	// Verify actual field casing on the category content type
+	console.log('📦 Raw category story content:', JSON.stringify(categoryStory?.content, null, 2));
+
 	if (!categoryStory) {
 		return (
 			<div className="error-page">
