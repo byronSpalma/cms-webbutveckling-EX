@@ -12,6 +12,7 @@ export default async function ArticlePage({ params }) {
 
 	// Fetch the article story with resolved author relation
 	const story = await getStoryWithRelations(`articles/${slug}`, 'article.author');
+	console.log('STORY DATA:', JSON.stringify(story, null, 2));
 
 	if (!story) {
 		return (
