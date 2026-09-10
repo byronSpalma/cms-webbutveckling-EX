@@ -1,0 +1,93 @@
+.articles-container {
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+.articles-title {
+	font-size: 42px;
+	font-weight: 700;
+	margin: 0 0 40px 0;
+	color: #000;
+}
+
+.no-articles {
+	font-size: 16px;
+	color: #666;
+	text-align: center;
+	padding: 40px 20px;
+}
+
+.articles-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	gap: 24px;
+}
+
+.article-card {
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	overflow: hidden;
+	transition: all 0.3s ease;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.article-card:hover {
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+	transform: translateY(-2px);
+}
+
+.article-link {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	padding: 24px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.article-card-title {
+	font-size: 18px;
+	font-weight: 600;
+	margin: 0 0 12px 0;
+	color: #000;
+	line-height: 1.4;
+}
+
+.article-card-title:hover {
+	color: #0066ff;
+}
+
+.article-card-summary {
+	font-size: 14px;
+	color: #666;
+	margin: 0 0 16px 0;
+	line-height: 1.6;
+	flex-grow: 1;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.article-card-author {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 12px;
+	margin-top: auto;
+	padding-top: 12px;
+	border-top: 1px solid #f0f0f0;
+}
+
+.author-label {
+	color: #999;
+	font-weight: 500;
+}
+
+.author-name {
+	color: #0066ff;
+	font-weight: 600;
+}
