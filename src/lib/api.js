@@ -40,30 +40,30 @@ export async function getStoryWithRelations(slug, relations = []) {
 
 	const result = await getStory(slug, params);
 
-	// If author is not resolved (still an ID or array of IDs), fetch it separately
-	if (result && result.content?.author) {
-		const authorId = Array.isArray(result.content.author) 
-			? result.content.author[0] 
-			: result.content.author;
+	// If Author is not resolved (still an ID or array of IDs), fetch it separately
+	if (result && result.content?.Author) {
+		const authorId = Array.isArray(result.content.Author) 
+			? result.content.Author[0] 
+			: result.content.Author;
 		
 		if (typeof authorId === 'string') {
 			const authorStory = await getStoryById(authorId);
 			if (authorStory) {
-				result.content.author = authorStory.content;
+				result.content.Author = authorStory.content;
 			}
 		}
 	}
 
-	// Same for category
-	if (result && result.content?.category) {
-		const categoryId = typeof result.content.category === 'string' 
-			? result.content.category 
-			: result.content.category;
+	// Same for Category
+	if (result && result.content?.Category) {
+		const categoryId = typeof result.content.Category === 'string' 
+			? result.content.Category 
+			: result.content.Category;
 		
 		if (typeof categoryId === 'string') {
 			const categoryStory = await getStoryById(categoryId);
 			if (categoryStory) {
-				result.content.category = categoryStory.content;
+				result.content.Category = categoryStory.content;
 			}
 		}
 	}

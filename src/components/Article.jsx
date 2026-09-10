@@ -9,40 +9,40 @@ const Article = ({ blok }) => {
 		<article className="article-detail" {...storyblokEditable(blok)}>
 			{/* Header */}
 			<header className="article-header">
-				{blok.category && (
-					<span className="article-category-badge">{blok.category}</span>
+				{blok.Category && (
+					<span className="article-category-badge">{blok.Category.Title || blok.Category}</span>
 				)}
-				<h1 className="article-title">{blok.title}</h1>
-				<p className="article-summary">{blok.summary}</p>
+				<h1 className="article-title">{blok.Title}</h1>
+				<p className="article-summary">{blok.Summary}</p>
 
 				{/* Author Info */}
-				{blok.author && (
+				{blok.Author && (
 					<div className="article-author-info">
-						{blok.author.photo && (
+						{blok.Author.Photo && (
 							<img
-								src={blok.author.photo.filename}
-								alt={blok.author.name}
+								src={blok.Author.Photo.filename}
+								alt={blok.Author.Name}
 								className="author-photo"
 							/>
 						)}
 						<div className="author-details">
-							<Link href={`/authors/${blok.author.slug}`} className="author-name">
-								{blok.author.name}
+							<Link href={`/authors/${blok.Author.slug}`} className="author-name">
+								{blok.Author.Name}
 							</Link>
-							<p className="author-bio">{blok.author.bio}</p>
+							<p className="author-bio">{blok.Author.Bio}</p>
 						</div>
 					</div>
 				)}
 			</header>
 
 			{/* Content */}
-			{blok.content && (
+			{blok.Content && (
 				<div className="article-content">
-					{typeof blok.content === 'string' ? (
-						<div dangerouslySetInnerHTML={{ __html: blok.content }} />
+					{typeof blok.Content === 'string' ? (
+						<div dangerouslySetInnerHTML={{ __html: blok.Content }} />
 					) : (
 						// For rich text JSON, render as fallback
-						<p>{JSON.stringify(blok.content)}</p>
+						<p>{JSON.stringify(blok.Content)}</p>
 					)}
 				</div>
 			)}
