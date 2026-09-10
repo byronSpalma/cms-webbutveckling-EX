@@ -1,0 +1,45 @@
+.author-profile {
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 40px 20px;
+	text-align: center;
+}
+
+.author-photo-container {
+	margin-bottom: 32px;
+}
+
+.author-photo {
+	width: 300px;
+	height: 300px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+	margin: 0 auto;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.author-name {
+	font-size: 36px;
+	font-weight: 700;
+	margin: 0 0 12px 0;
+	color: #000;
+}
+
+.author-bio {
+	font-size: 16px;
+	line-height: 1.6;
+	color: #666;
+	margin: 0;
+}
+
+@media (max-width: 768px) {
+	.author-photo {
+		width: 200px;
+		height: 200px;
+	}
+
+	.author-name {
+		font-size: 28px;
+	}
+}
