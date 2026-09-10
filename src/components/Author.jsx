@@ -7,11 +7,11 @@ const Author = ({ blok }) => {
 
 	return (
 		<div className="author-profile" {...storyblokEditable(blok)}>
-			{blok.photo && (
+			{blok.Photo && (
 				<div className="author-photo-container">
 					<Image
-						src={blok.photo.filename}
-						alt={blok.name}
+						src={blok.Photo.filename}
+						alt={blok.Name}
 						width={300}
 						height={300}
 						className="author-photo"
@@ -19,8 +19,8 @@ const Author = ({ blok }) => {
 				</div>
 			)}
 			<div className="author-content">
-				<h1 className="author-name">{blok.name}</h1>
-				{blok.bio && <p className="author-bio">{blok.bio}</p>}
+				<h1 className="author-name">{blok.Name}</h1>
+				{blok.Bio && <p className="author-bio">{blok.Bio}</p>}
 			</div>
 		</div>
 	);
