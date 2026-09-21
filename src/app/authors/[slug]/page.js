@@ -36,10 +36,10 @@ export default async function AuthorPage({ params }) {
 			<Author blok={authorStory.content} />
 
 			<div className="author-articles-section">
-				<h2 className="articles-heading">Articles by {authorStory.content.Name}</h2>
+				<h2 className="articles-heading">Artiklar av {authorStory.content.Name}</h2>
 
 				{articles.length === 0 ? (
-					<p className="no-articles">No articles published by this author yet.</p>
+					<p className="no-articles">Det finns inga artiklar publicerade av denna författare än.</p>
 				) : (
 					<div className="articles-grid">
 						{articles.map((article) => (
@@ -50,7 +50,7 @@ export default async function AuthorPage({ params }) {
 			</div>
 
 			<Link href="/articles" className="back-link">
-				← Back to all articles
+				← Till alla artiklar
 			</Link>
 		</div>
 	);
