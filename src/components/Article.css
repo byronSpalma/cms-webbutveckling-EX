@@ -37,7 +37,7 @@
 	margin: 16px 0 0 0;
 }
 
-.article-author-info {
+.article-Author-info {
 	display: flex;
 	gap: 16px;
 	margin-top: 24px;
@@ -45,7 +45,7 @@
 	align-items: flex-start;
 }
 
-.author-photo {
+.Author-photo {
 	width: 80px;
 	height: 80px;
 	border-radius: 50%;
@@ -53,13 +53,13 @@
 	flex-shrink: 0;
 }
 
-.author-details {
+.Author-details {
 	display: flex;
 	flex-direction: column;
 	gap: 4px;
 }
 
-.author-name {
+.Author-name {
 	font-size: 16px;
 	font-weight: 600;
 	color: #0066ff;
@@ -67,12 +67,12 @@
 	transition: color 0.2s;
 }
 
-.author-name:hover {
+.Author-name:hover {
 	color: #0052cc;
 	text-decoration: underline;
 }
 
-.author-bio {
+.Author-bio {
 	font-size: 14px;
 	color: #666;
 	margin: 0;
@@ -144,11 +144,11 @@
 		font-size: 16px;
 	}
 
-	.article-author-info {
+	.article-Author-info {
 		gap: 12px;
 	}
 
-	.author-photo {
+	.Author-photo {
 		width: 64px;
 		height: 64px;
 	}
