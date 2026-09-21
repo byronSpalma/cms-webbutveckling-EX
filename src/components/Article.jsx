@@ -16,24 +16,24 @@ const Article = ({ blok }) => {
 				<p className="article-summary">{blok.Summary}</p>
 
 				{/* Author Info */}
-				{blok.Author && (
+				{blok.author && (
 					<div className="article-author-info">
-						{blok.Author.Photo && (
+						{blok.author.Photo && (
 							<img
-								src={blok.Author.Photo.filename}
-								alt={blok.Author.Name}
+								src={blok.author.Photo.filename}
+								alt={blok.author.Name}
 								className="author-photo"
 							/>
 						)}
 						<div className="author-details">
-						{blok.Author.slug ? (
-							<Link href={`/authors/${blok.Author.slug}`} className="author-name">
-								{blok.Author.Name}
+						{blok.author.slug ? (
+							<Link href={`/authors/${blok.author.slug}`} className="author-name">
+								{blok.author.Name}
 							</Link>
 						) : (
-							<span className="author-name">{blok.Author.Name}</span>
+							<span className="author-name">{blok.author.Name}</span>
 						)}
-							<p className="author-bio">{blok.Author.Bio}</p>
+							<p className="author-bio">{blok.author.Bio}</p>
 						</div>
 					</div>
 				)}

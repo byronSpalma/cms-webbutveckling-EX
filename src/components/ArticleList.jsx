@@ -3,7 +3,7 @@ import ArticleItem from './ArticleItem';
 
 export default async function ArticleList({ blok, slug }) {
 	const storyblokApi = getStoryblokApi();
-    
+
 	const { data } = await storyblokApi.getStories({
 		version: 'published',
 		content_type: 'article',
@@ -16,6 +16,8 @@ export default async function ArticleList({ blok, slug }) {
 	});
 
 	const stories = data.stories;
+
+	console.log("author field:", stories[0]?.content.Author);
 
 	return (
 		<div className="articles-list">
