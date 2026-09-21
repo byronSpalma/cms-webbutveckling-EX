@@ -5,9 +5,11 @@ import './Article.css';
 const Article = ({ blok }) => {
 	if (!blok) return null;
 
+	const author = blok.Author?.[0];
+
 	return (
 		<article className="article-detail" {...storyblokEditable(blok)}>
-			{/* Header */}
+			// Header
 			<header className="article-header">
 				{blok.Category && (
 					<span className="article-category-badge">{blok.Category.Title || blok.Category}</span>
@@ -15,37 +17,37 @@ const Article = ({ blok }) => {
 				<h1 className="article-title">{blok.Title}</h1>
 				<p className="article-summary">{blok.Summary}</p>
 
-				{/* Author Info */}
-				{blok.author && (
-					<div className="article-author-info">
-						{blok.author.Photo && (
+				// Authorinformation
+				{author && (
+					<div className="article-Author-info">
+						{author.content.Photo && (
 							<img
-								src={blok.author.Photo.filename}
-								alt={blok.author.Name}
-								className="author-photo"
+								src={author.content.Photo.filename}
+								alt={author.content.Name}
+								className="Author-photo"
 							/>
 						)}
-						<div className="author-details">
-						{blok.author.slug ? (
-							<Link href={`/authors/${blok.author.slug}`} className="author-name">
-								{blok.author.Name}
+						<div className="Author-details">
+						{author.slug ? (
+							<Link href={`/authors/${author.slug}`} className="Author-name">
+								{author.content.Name}
 							</Link>
 						) : (
-							<span className="author-name">{blok.author.Name}</span>
+							<span className="Author-name">{author.content.Name}</span>
 						)}
-							<p className="author-bio">{blok.author.Bio}</p>
+							<p className="Author-bio">{author.content.Bio}</p>
 						</div>
 					</div>
 				)}
 			</header>
 
-			{/* Content */}
+			// Innehåll
 			{blok.Content && (
 				<div className="article-content">
 					{typeof blok.Content === 'string' ? (
 						<div dangerouslySetInnerHTML={{ __html: blok.Content }} />
 					) : (
-						// For rich text JSON, render as fallback
+						// liten fallback för rich text JSON
 						<p>{JSON.stringify(blok.Content)}</p>
 					)}
 				</div>

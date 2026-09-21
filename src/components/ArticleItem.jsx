@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import './ArticleItem.css';
 
-// Extracts a short plain-text preview from a rich-text or HTML content field
+// Hämtar en kort förhandsvisning av innehållet från ett rich text- eller HTML-innehållsfält.
 function getContentPreview(content, maxLength = 140) {
 	if (!content) return '';
 
