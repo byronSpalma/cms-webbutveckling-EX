@@ -20,7 +20,7 @@ const Article = ({ blok }) => {
 				// Authorinformation
 				{author && (
 					<div className="article-Author-info">
-						{author.content.Photo && (
+						{author.content.Photo?.filename && (
 							<img
 								src={author.content.Photo.filename}
 								alt={author.content.Name}
