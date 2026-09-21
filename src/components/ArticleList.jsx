@@ -16,9 +16,6 @@ export default async function ArticleList({ blok, slug }) {
 	});
 
 	const stories = data.stories;
-
-	console.log("author field:", stories[3]?.content.Author);
-
 	return (
 		<div className="articles-list">
 			{blok.headline && <h2>{blok.headline}</h2>}

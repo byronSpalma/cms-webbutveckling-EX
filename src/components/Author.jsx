@@ -7,7 +7,7 @@ const Author = ({ blok }) => {
 
 	return (
 		<div className="author-profile" {...storyblokEditable(blok)}>
-			{blok.Photo && (
+			{blok.Photo?.filename && (
 				<div className="author-photo-container">
 					<Image
 						src={blok.Photo.filename}

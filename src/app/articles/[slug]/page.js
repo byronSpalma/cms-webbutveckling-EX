@@ -9,8 +9,12 @@ export default async function ArticleDetailPage({ params }) {
   let story;
   try {
     const { data } = await storyblokApi.get(`cdn/stories/articles/${slug}`, {
-      version: "draft",
+      version: "published",
+      resolve_relations: "article.Author",
     });
+
+    console.log("FULL DATA:", JSON.stringify(data, null, 2));
+
     story = data.story;
   } catch {
     notFound();
