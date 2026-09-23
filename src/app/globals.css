@@ -1,1 +1,7 @@
 @import 'https://a.storyblok.com/f/212319/x/e6ccda03b8/blueprint-blank.css';
+
+html,
+body {
+	background-color: #f5f5f5;
+	color: #1a1a1a;
+}
